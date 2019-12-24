@@ -1,0 +1,7 @@
+{% extends "questions/wrapper.html" %}
+
+{% block content %}
+    <h2 class="text-info">{{object.title}}</h2>
+    <p>{{object.post|safe|linebreaks}}</p>
+    <h8 class="text-info">Опубликовано: {{object.date|date:"Y-m-d в H:i:s"}}</h8>
+{% endblock %}
