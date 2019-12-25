@@ -4,7 +4,7 @@
     <h1>Создайте вопрос</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-success btn-lg">Отправить</button>
+        <button type="submit" class="save btn btn-success">Отправить</button>
     <p></p>
     </form>
 {% endblock %}

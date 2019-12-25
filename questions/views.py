@@ -54,6 +54,7 @@ def add_comment_to_post(request, pk):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.postassigned = article
+            comment.author = request.user
             comment.save()
             return redirect('article_details', pk=article.pk)
     else:
