@@ -1,7 +1,23 @@
-{% extends "questions/wrapper.html" %}
+{% extends "mainApp/wrapper.html" %}
 
 {% block content %}
     <h2 class="text-info">{{object.title}}</h2>
     <p>{{object.post|safe|linebreaks}}</p>
     <h8 class="text-info">Опубликовано: {{object.date|date:"Y-m-d в H:i:s"}}</h8>
+    <h8 class="text-info">Автор: {{object.author}}</h8>
+
+    <hr>
+    {% for comment in object.comments.all %}
+    <div class="comment">
+    <div class="date">{{ comment.created_date }}</div>
+    <strong>{{ comment.author }}</strong>
+    <p>{{ comment.text|linebreaks }}</p>
+    </div>
+    {% empty %}
+    <p>Здесь пока нет комментариев, вы можете стать первыми!</p>
+    {% endfor %}
+    <a class="btn btn-primary btn-lg" href="{% url 'add_comment_to_post' pk=object.pk %}">Оставить комментарий</a>
+    <a class="btn btn-default" href="{% url 'post_remove' pk=object.pk %}">Удалить вопрос</a>
+</a>
+    <p></p>
 {% endblock %}
