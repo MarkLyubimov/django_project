@@ -6,7 +6,7 @@ from .views import ArticleListView, CommentListView, ArticleDetailView, post_new
 
 
 urlpatterns = [
-                path('', ArticleListView.as_view(), name='articles_top'),
+                path('', ArticleListView.as_view(queryset=Articles.objects.all().order_by("-date")[:20]), name='articles_top'),
                 path('<int:pk>/', ArticleDetailView.as_view(), name='article_details'),
                 path('new/', post_new, name='post_new'),
                 path('<int:pk>/comment/', add_comment_to_post, name='add_comment_to_post'),

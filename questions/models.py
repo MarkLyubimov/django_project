@@ -15,6 +15,10 @@ class Articles(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = 'Вопрос'
+        verbose_name_plural = 'Вопросы'
+
 
 class Comments(models.Model):
     postassigned = models.ForeignKey(Articles, on_delete=models.CASCADE, related_name='comments', default=DEFAULT_ID)
@@ -25,3 +29,7 @@ class Comments(models.Model):
 
     def __str__(self):
         return self.text
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'

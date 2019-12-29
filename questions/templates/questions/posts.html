@@ -4,6 +4,6 @@
     <h1>Самые популярные вопросы</h1>
     {% for article in object_list %}
         <a href="/questions/{{article.id}}"><h3>{{article.title}}</h3></a>
-        <h5>{{article.date|date:"d-m-Y"}}</h5>
+        <h5>{{article.date|date:"Y-m-d в H:i:s"}}</h5>
     {% endfor %}
 {% endblock %}
